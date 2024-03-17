@@ -24,7 +24,7 @@ st.sidebar.map(pd.DataFrame(pd.Series([40.088243727163956,116.30600799534605],in
 
 col1,col2=st.columns([9,1])
 col1.subheader("王歌 博士")
-col1.markdown("**华北电力大学 经济与管理学院 讲师, 硕士生导师**")
+col1.markdown("**华北电力大学 经济与管理学院 副教授, 硕士生导师**")
 
 myphoto = Image.open('photos/homepage.jpeg')
 col2.image(myphoto)
@@ -35,14 +35,16 @@ page1, page2, page3, page4 =st.tabs(["个人简历","科研工作","研究生培
 #-----------------page1
 page1.subheader("个人简历")
 
-page1.markdown("2019 至今 华北电力大学 经济与管理学院 讲师")
+page1.markdown("华北电力大学 经济与管理学院 副教授")
 
-p1tab1, p1tab2, p1tab3 =page1.tabs(["教育经历","研究兴趣","招生需求"])
+p1tab1, p1tab2, p1tab3 =page1.tabs(["个人经历","研究兴趣","招生需求"])
 #tab1.markdown('**工作和教育经历**')
 
-p1tab1.markdown("[1] 2014-2019 中国石油大学（北京）中国能源战略研究院/经济管理学院 硕博连读")
-p1tab1.markdown("[2] 2018-2019 美国加州大学伯克利分校 劳伦斯伯克利国家实验室 联合培养")
-p1tab1.markdown("[3] 2009-2013 南京大学 天文与空间科学学院 本科")
+p1tab1.markdown("[1] 2024-     华北电力大学 经济与管理学院 副教授")
+p1tab1.markdown("[2] 2019-2023 华北电力大学 经济与管理学院 讲师")
+p1tab1.markdown("[3] 2014-2019 中国石油大学（北京）中国能源战略研究院/经济管理学院 硕博连读")
+p1tab1.markdown("[4] 2018-2019 美国加州大学伯克利分校 劳伦斯伯克利国家实验室 联合培养")
+p1tab1.markdown("[5] 2009-2013 南京大学 天文与空间科学学院 本科")
 
 
 #tab2.markdown('**研究兴趣**')
@@ -63,12 +65,13 @@ page2.subheader("科研工作")
 papers=pd.read_csv("publications.csv")
 projects=pd.read_csv("projects.csv")
 rewards=pd.read_csv("rewards.csv")
+software=pd.read_csv("software.csv")
 
 page2.markdown("- 累计发表论文%d篇"%len(papers))
 page2.markdown("- 主持科研项目%d项, 累计承担经费:  %.1f万元"%(len(projects[projects["参与情况"]=="主持"]),projects["金额"].sum()))
 page2.markdown("- 获得各类奖项%d项"%len(rewards))
 
-p2tab1, p2tab2, p2tab3 =page2.tabs(["发表论文","承担项目","获得奖项"])
+p2tab1, p2tab2, p2tab3, p2tab4 =page2.tabs(["发表论文","承担项目","获得奖项","软件著作权"])
 
 item=0
 year=papers.iloc[0].loc["Year"]
@@ -91,6 +94,9 @@ for i in rewards.index:
 		p2tab3.markdown("[%d] %s %s. 排名第%d. %d年."%(i+1,rewards.loc[i,'奖项'],rewards.loc[i,'等级'],rewards.loc[i,'排名'],rewards.loc[i,'年']))
 	else:
 		p2tab3.markdown("[%d] %s. %d年."%(i+1,rewards.loc[i,'奖项'],rewards.loc[i,'年']))
+
+for i in software.index:
+	p2tab4.markdown("[%d] %s. %d年."%(i+1,software.loc[i,'题目'],software.loc[i,'年份']))
 
 #-----------------page3
 

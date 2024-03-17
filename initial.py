@@ -19,6 +19,12 @@ projects=projects.sort_values(by=["开始年份","类型"],ascending=False)
 projects.to_csv("projects.csv")
 
 # %%
+software=pd.read_excel("myworks.xlsx",sheet_name="软件著作权").fillna(0)
+
+software=software.sort_values(by=["年份"],ascending=False)
+software.to_csv("software.csv")
+
+# %%
 under_courses=pd.read_excel("myworks.xlsx",sheet_name="教授本科课程").fillna(0)
 under_courses=under_courses.sort_values(by=["学年起始","学期"],ascending=False)
 under_courses.to_csv("under_courses.csv")
