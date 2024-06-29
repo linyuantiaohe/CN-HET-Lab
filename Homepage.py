@@ -104,7 +104,7 @@ page3.subheader('研究生培养')
 
 grad_thesis=pd.read_csv("grad_thesis.csv")
 
-page3.markdown("组内有在读全日制硕士研究生13人，非全日制硕士研究生10人，已毕业硕士研究生%d人。"%(len(grad_thesis)))
+page3.markdown("组内有在读全日制硕士研究生9人，非全日制硕士研究生8人，已毕业硕士研究生%d人。"%(len(grad_thesis)))
 
 p3tab1, p3tab2, p3tab3 =page3.tabs(["在读同学","指导毕业论文","指导获奖"])
 
@@ -124,18 +124,6 @@ p3tab1.markdown('(%s 全日制) **程煜, 谭宇璇.**'%majors[0])
 p3tab1.markdown('(%s 非全日制) **康晓杰, 古明越, 赵铭路, 李梓熙, 周舟.**'%majors[0])
 p3tab1.markdown('(%s 全日制) **尹亭, 冯楚怡.**'%majors[1])
 p3tab1.text('\n')
-
-p3tab1.subheader('在读-2021级')
-p3tab1.markdown('(%s 全日制) **张禾.**'%majors[0])
-p3tab1.markdown('(%s 非全日制) **郑越.**'%majors[0])
-p3tab1.markdown('(%s 全日制) **李智, 毛瑀璇, 钱嘉琪.**'%majors[1])
-#students2021 = Image.open('photos/研究生/2021.png')
-#p3tab1.image(students2021, caption='2022年初聚餐')
-#p3tab1.text('\n')
-
-p3tab1.subheader('在读-2020级')
-p3tab1.markdown('(%s 非全日制) **纪金杉.**'%majors[0])
-
 ##------------------------page3-2
 p3tab2.subheader('毕业论文')
 
