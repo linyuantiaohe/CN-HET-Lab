@@ -17,7 +17,7 @@ os.system('python initial.py')
 
 #st.image(Image.open('photos/logo.png'))
 st.header("碳中和-氢电交通耦合系统实验室")
-st.sidebar.markdown("诚招勤奋、好学、踏实的研究生, 急需有编程背景的同学。待遇从优！")
+st.sidebar.markdown("诚招勤奋、好学、踏实的研究生, 急需有编程背景的同学。")
 st.sidebar.markdown("E-mail: wangge@ncepu.edu.cn")
 st.sidebar.markdown("地址: 北京市昌平区北农路2号")
 st.sidebar.map(pd.DataFrame(pd.Series([40.088243727163956,116.30600799534605],index=['lat', 'lon']),columns=['Ncepu']).T)
@@ -35,7 +35,7 @@ page1, page2, page3, page4 =st.tabs(["个人简历","科研工作","研究生培
 #-----------------page1
 page1.subheader("个人简历")
 
-page1.markdown("华北电力大学 经济与管理学院 副教授")
+page1.markdown("华北电力大学经济与管理学院副教授，硕士生导师，碳中和管理教研室主任。于南京大学获得天文学学士学位，于中国石油大学（北京）硕博连读获得管理学博士学位，于美国劳伦斯伯克利国家实验室博士联培。入选华北电力大学创新人才支持与培育计划，主持国家级、省部级科研项目等5项，发表论文30余篇，获得各级科研教学奖励十余项。")
 
 p1tab1, p1tab2, p1tab3 =page1.tabs(["个人经历","研究兴趣","招生需求"])
 #tab1.markdown('**工作和教育经历**')
@@ -45,7 +45,6 @@ p1tab1.markdown("[2] 2019-2023 华北电力大学 经济与管理学院 讲师")
 p1tab1.markdown("[3] 2014-2019 中国石油大学（北京）中国能源战略研究院/经济管理学院 硕博连读")
 p1tab1.markdown("[4] 2018-2019 美国加州大学伯克利分校 劳伦斯伯克利国家实验室 联合培养")
 p1tab1.markdown("[5] 2009-2013 南京大学 天文与空间科学学院 本科")
-
 
 #tab2.markdown('**研究兴趣**')
 
@@ -63,15 +62,16 @@ p1tab3.markdown("- 具备英文论文阅读能力")
 page2.subheader("科研工作")
 
 papers=pd.read_csv("publications.csv")
+books=pd.read_csv("books.csv")
 projects=pd.read_csv("projects.csv")
 rewards=pd.read_csv("rewards.csv")
 software=pd.read_csv("software.csv")
 
-page2.markdown("- 累计发表论文%d篇"%len(papers))
+page2.markdown("- 累计发表论文%d篇,出版著作%d部"%(len(papers),len(books)))
 page2.markdown("- 主持科研项目%d项, 累计承担经费:  %.1f万元"%(len(projects[projects["参与情况"]=="主持"]),projects["金额"].sum()))
 page2.markdown("- 获得各类奖项%d项"%len(rewards))
 
-p2tab1, p2tab2, p2tab3, p2tab4 =page2.tabs(["发表论文","承担项目","获得奖项","软件著作权"])
+p2tab1,p2tab5, p2tab2, p2tab3, p2tab4 =page2.tabs(["发表论文","出版著作","承担项目","获得奖项","软件著作权"])
 
 item=0
 year=papers.iloc[0].loc["Year"]
@@ -82,6 +82,12 @@ for i in papers.index:
 		p2tab1.markdown("**%d**"%year)
 	p2tab1.markdown("[%d] %s"%(item+1,papers.loc[i,'papers']))
 	item+=1
+
+for i in books.index:
+	if books.loc[i,'备注']=='None':
+		p2tab5.markdown("[%d] %s, %s, %d, %s. **%s**"%(i+1,books.loc[i,'作者'],books.loc[i,'著作标题'],books.loc[i,'年份'],books.loc[i,'出版社'],books.loc[i,'著作类型']))
+	else:
+		p2tab5.markdown("[%d] %s, %s, %d, %s. **%s**(**%s**)"%(i+1,books.loc[i,'作者'],books.loc[i,'著作标题'],books.loc[i,'年份'],books.loc[i,'出版社'],books.loc[i,'著作类型'],books.loc[i,'备注']))
 
 for i in projects.index:
 	if projects.loc[i,"参与情况"]=="主持":

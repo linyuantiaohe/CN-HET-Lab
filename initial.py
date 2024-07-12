@@ -13,6 +13,12 @@ papers=papers.sort_values(by="Year",ascending=False)
 papers.to_csv("publications.csv")
 
 # %%
+books=pd.read_excel("myworks.xlsx",sheet_name="出版著作")
+
+books=books.sort_values(by="年份",ascending=False)
+books.to_csv("books.csv")
+
+# %%
 projects=pd.read_excel("myworks.xlsx",sheet_name="承担项目").fillna(0)
 
 projects=projects.sort_values(by=["开始年份","类型"],ascending=False)
