@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import numpy as np
 import os
 from PIL import Image
 
@@ -84,7 +85,7 @@ for i in papers.index:
 	item+=1
 
 for i in books.index:
-	if books.loc[i,'备注']=='None':
+	if np.isnan(books.loc[i,'备注']):
 		p2tab5.markdown("[%d] %s, %s, %d, %s. **%s**"%(i+1,books.loc[i,'作者'],books.loc[i,'著作标题'],books.loc[i,'年份'],books.loc[i,'出版社'],books.loc[i,'著作类型']))
 	else:
 		p2tab5.markdown("[%d] %s, %s, %d, %s. **%s**(**%s**)"%(i+1,books.loc[i,'作者'],books.loc[i,'著作标题'],books.loc[i,'年份'],books.loc[i,'出版社'],books.loc[i,'著作类型'],books.loc[i,'备注']))
