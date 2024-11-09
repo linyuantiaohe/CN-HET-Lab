@@ -111,12 +111,16 @@ page3.subheader('研究生培养')
 
 grad_thesis=pd.read_csv("grad_thesis.csv")
 
-page3.markdown("组内有在读全日制硕士研究生13人，非全日制硕士研究生12人，已毕业硕士研究生%d人。"%(len(grad_thesis)))
+page3.markdown("组内有在读全日制硕士研究生14人，非全日制硕士研究生12人，已毕业硕士研究生%d人。"%(len(grad_thesis)))
 
 p3tab1, p3tab2, p3tab3 =page3.tabs(["在读同学","指导毕业论文","指导获奖"])
 
 ##------------------------page3-1
 majors=["工业工程与管理","物流工程与管理","工商管理"]
+
+p3tab1.subheader('在读-2025级')
+
+p3tab1.markdown('(%s 全日制) **刘源(保研、目前为大四本科生).**'%majors[2])
 
 p3tab1.subheader('在读-2024级')
 
