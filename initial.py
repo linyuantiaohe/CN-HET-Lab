@@ -6,7 +6,7 @@ import numpy as np
 papers=pd.read_excel("myworks.xlsx",sheet_name="发表论文")
 
 for i in papers.index:
-	year=papers.loc[i,"papers"].split(". ")[0].split(" 20")[-1].strip("abcdefghijklmn")
+	year=papers.loc[i,"papers"].split(" 20")[1][0:2]
 	papers.loc[i,'Year']="20"+year
 
 papers=papers.sort_values(by="Year",ascending=False)
