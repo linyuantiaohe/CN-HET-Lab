@@ -117,7 +117,7 @@ majors=["工业工程与管理","物流工程与管理","工商管理"]
 
 p3tab1.subheader('在读-2025级')
 
-p3tab1.markdown('(%s 全日制) **刘源(保研、目前为大四本科生).**'%majors[2])
+p3tab1.markdown('(%s 全日制) **刘源.**'%majors[2])
 
 p3tab1.subheader('在读-2024级')
 
@@ -136,9 +136,7 @@ p3tab1.text('\n')
 
 p3tab1.subheader('在读-2022级')
 
-p3tab1.markdown('(%s 全日制) **程煜, 谭宇璇.**'%majors[0])
-p3tab1.markdown('(%s 全日制) **尹亭, 冯楚怡.**'%majors[1])
-p3tab1.markdown('(%s 非全日制) **康晓杰, 古明越, 赵铭路, 李梓熙, 周舟.**'%majors[0])
+p3tab1.markdown('(%s 非全日制) **康晓杰, 古明越, 赵铭路, 周舟.**'%majors[0])
 p3tab1.text('\n')
 ##------------------------page3-2
 p3tab2.subheader('毕业论文')
