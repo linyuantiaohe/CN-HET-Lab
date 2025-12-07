@@ -1,4 +1,2 @@
-D:
-cd D:\Github\CN-HET-Lab
 conda activate model
-pythonw -m streamlit run .\HomePage.py --server.enableXsrfProtection=false --server.port 7000
+streamlit run .\HomePage.py --server.enableXsrfProtection=false --server.port 7000
