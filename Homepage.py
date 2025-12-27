@@ -50,7 +50,7 @@ p1tab1.markdown("[5] 2009-2013 南京大学 天文与空间科学学院 本科")
 #tab2.markdown('**研究兴趣**')
 
 p1tab2.markdown("- 电氢交通耦合系统")
-p1tab2.markdown("- 可再生能源经济与政策")
+p1tab2.markdown("- 电力市场与碳中和政策")
 p1tab2.markdown("- 复杂网络与博弈")
 
 #tab3.markdown('**招生方向**')
@@ -67,12 +67,14 @@ books=pd.read_csv("books.csv")
 projects=pd.read_csv("projects.csv")
 rewards=pd.read_csv("rewards.csv")
 software=pd.read_csv("software.csv")
+presentations=pd.read_csv("presentation.csv")
+media=pd.read_csv("media.csv")
 
 page2.markdown("- 累计发表论文%d篇,出版著作%d部"%(len(papers),len(books)))
 page2.markdown("- 主持科研项目%d项, 累计承担经费:  %.1f万元"%(len(projects[projects["参与情况"]=="主持"]),projects["金额"].sum()))
 page2.markdown("- 获得各类奖项%d项"%len(rewards))
 
-p2tab1,p2tab5, p2tab2, p2tab3, p2tab4 =page2.tabs(["发表论文","出版著作","承担项目","获得奖项","软件著作权"])
+p2tab1,p2tab5, p2tab2, p2tab3, p2tab4, p2tab6, p2tab7 =page2.tabs(["发表论文","出版著作","承担项目","获得奖项","专利和软件著作权","会议发表","媒体报道"])
 
 item=0
 year=papers.iloc[0].loc["Year"]
@@ -100,15 +102,20 @@ for i in rewards.index:
 		p2tab3.markdown("[%d] %s. %d年."%(i+1,rewards.loc[i,'奖项'],rewards.loc[i,'年']))
 
 for i in software.index:
-	p2tab4.markdown("[%d] %s. %d年."%(i+1,software.loc[i,'题目'],software.loc[i,'年份']))
+	p2tab4.markdown("[%d] %s.(**%s**). %d年."%(i+1,software.loc[i,'题目'],software.loc[i,'类型'],software.loc[i,'年份']))
 
+for i in presentations.index:
+	p2tab6.markdown("[%d] %s. %s, **%s**. %s, %d年."%(i+1,presentations.loc[i,'题目'],presentations.loc[i,'会议名称'],presentations.loc[i,'发表类型'],presentations.loc[i,'地点'],presentations.loc[i,'年份']))
+
+for i in media.index:
+	p2tab7.markdown("[%d] %s. %s, %s. %d年."%(i+1,media.loc[i,'题目'],media.loc[i,'媒体'],media.loc[i,'类型'],media.loc[i,'年份']))
 #-----------------page3
 
 page3.subheader('研究生培养')
 
 grad_thesis=pd.read_csv("grad_thesis.csv")
 
-page3.markdown("组内有在读全日制硕士研究生14人，非全日制硕士研究生12人，已毕业硕士研究生%d人。"%(len(grad_thesis)))
+page3.markdown("组内有在读全日制硕士研究生14人，非全日制硕士研究生14人，已毕业硕士研究生%d人。"%(len(grad_thesis)))
 
 p3tab1, p3tab2, p3tab3 =page3.tabs(["在读同学","指导毕业论文","指导获奖"])
 
@@ -139,7 +146,7 @@ p3tab1.text('\n')
 
 p3tab1.subheader('在读-2022级')
 
-p3tab1.markdown('(%s 非全日制) **康晓杰, 古明越, 周舟.**'%majors[0])
+p3tab1.markdown('(%s 非全日制) **古明越.**'%majors[0])
 p3tab1.text('\n')
 ##------------------------page3-2
 p3tab2.subheader('毕业论文')
@@ -172,7 +179,7 @@ for i in under_courses.index:
 	p4tab1.markdown("[%d] %s, %d学时, %d-%d学年第%d学期, 选课人数: %d人。"%(i+1,under_courses.loc[i,"课程名称"],under_courses.loc[i,"课时"],under_courses.loc[i,"学年起始"],under_courses.loc[i,"学年终止"],under_courses.loc[i,"学期"],under_courses.loc[i,"选课人数"]))
 
 p4tab1.subheader('担任班主任')
-p4tab1.markdown('2022.9 至今 营销2101班')
+p4tab1.markdown('2022.9-2025.6 营销2101班')
 p4tab1.markdown('2021.9-2022.9 工商2104班')
 p4tab1.markdown('2019.9-2020.9 工商1908班')
 

@@ -25,10 +25,21 @@ projects=projects.sort_values(by=["开始年份","类型"],ascending=False)
 projects.to_csv("projects.csv")
 
 # %%
-software=pd.read_excel("myworks.xlsx",sheet_name="软件著作权").fillna(0)
+software=pd.read_excel("myworks.xlsx",sheet_name="专利和软件著作权").fillna(0)
 
 software=software.sort_values(by=["年份"],ascending=False)
 software.to_csv("software.csv")
+
+presentation=pd.read_excel("myworks.xlsx",sheet_name="会议发表").fillna(0)
+
+presentation=presentation.sort_values(by=["年份"],ascending=False)
+presentation.to_csv("presentation.csv")
+
+
+media=pd.read_excel("myworks.xlsx",sheet_name="媒体报道").fillna(0)
+
+media=media.sort_values(by=["年份"],ascending=False)
+media.to_csv("media.csv")
 
 # %%
 under_courses=pd.read_excel("myworks.xlsx",sheet_name="教授本科课程").fillna(0)
