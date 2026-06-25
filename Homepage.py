@@ -115,7 +115,7 @@ page3.subheader('研究生培养')
 
 grad_thesis=pd.read_csv("grad_thesis.csv")
 
-page3.markdown("组内有在读全日制硕士研究生14人，非全日制硕士研究生14人，已毕业硕士研究生%d人。"%(len(grad_thesis)))
+page3.markdown("组内有在读全日制硕士研究生9人，非全日制硕士研究生11人，已毕业硕士研究生%d人。"%(len(grad_thesis)))
 
 p3tab1, p3tab2, p3tab3 =page3.tabs(["在读同学","指导毕业论文","指导获奖"])
 
@@ -139,14 +139,7 @@ p3tab1.text('\n')
 
 p3tab1.subheader('在读-2023级')
 
-p3tab1.markdown('(%s 全日制) **马嘉蔚, 栾则宇, 郭晓文.**'%majors[0])
-p3tab1.markdown('(%s 全日制) **卢子仪, 卢天翼.**'%majors[2])
-p3tab1.markdown('(%s 非全日制) **张豆豆, 杨田田, 杨学伟.**'%majors[2])
-p3tab1.text('\n')
-
-p3tab1.subheader('在读-2022级')
-
-p3tab1.markdown('(%s 非全日制) **古明越.**'%majors[0])
+p3tab1.markdown('(%s 非全日制) **杨田田.**'%majors[2])
 p3tab1.text('\n')
 ##------------------------page3-2
 p3tab2.subheader('毕业论文')
