@@ -115,12 +115,18 @@ page3.subheader('研究生培养')
 
 grad_thesis=pd.read_csv("grad_thesis.csv")
 
-page3.markdown("组内有在读全日制硕士研究生9人，非全日制硕士研究生11人，已毕业硕士研究生%d人。"%(len(grad_thesis)))
+page3.markdown("组内有在读全日制硕士研究生12人，非全日制硕士研究生17人，已毕业硕士研究生%d人。"%(len(grad_thesis)))
 
 p3tab1, p3tab2, p3tab3 =page3.tabs(["在读同学","指导毕业论文","指导获奖"])
 
 ##------------------------page3-1
 majors=["工业工程与管理","物流工程与管理","工商管理"]
+p3tab1.subheader('在读-2026级')
+
+p3tab1.markdown('(%s 全日制) **赵婉悦.**'%majors[2])
+p3tab1.markdown('(%s 全日制) **范梦颖，鲍敏敏.**'%majors[0])
+p3tab1.markdown('(%s 非全日制) **陈琪, 阚启明, 马腾.**'%majors[2])
+p3tab1.markdown('(%s 非全日制) **郑博焘，李响，刘佳梁，王洋洋.**'%majors[0])
 
 p3tab1.subheader('在读-2025级')
 
@@ -135,11 +141,6 @@ p3tab1.markdown('(%s 全日制) **孔思婕.**'%majors[2])
 p3tab1.markdown('(%s 全日制) **宫驰, 王菁, 万雨.**'%majors[0])
 p3tab1.markdown('(%s 非全日制) **周剑剑, 王一民, 都奎影.**'%majors[2])
 p3tab1.markdown('(%s 非全日制) **史丽航.**'%majors[0])
-p3tab1.text('\n')
-
-p3tab1.subheader('在读-2023级')
-
-p3tab1.markdown('(%s 非全日制) **杨田田.**'%majors[2])
 p3tab1.text('\n')
 ##------------------------page3-2
 p3tab2.subheader('毕业论文')
@@ -172,6 +173,7 @@ for i in under_courses.index:
 	p4tab1.markdown("[%d] %s, %d学时, %d-%d学年第%d学期, 选课人数: %d人。"%(i+1,under_courses.loc[i,"课程名称"],under_courses.loc[i,"课时"],under_courses.loc[i,"学年起始"],under_courses.loc[i,"学年终止"],under_courses.loc[i,"学期"],under_courses.loc[i,"选课人数"]))
 
 p4tab1.subheader('担任班主任')
+p4tab1.markdown('2026.9-2030.6 碳中和2601班')
 p4tab1.markdown('2022.9-2025.6 营销2101班')
 p4tab1.markdown('2021.9-2022.9 工商2104班')
 p4tab1.markdown('2019.9-2020.9 工商1908班')
