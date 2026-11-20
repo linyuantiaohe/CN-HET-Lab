@@ -49,9 +49,9 @@ p1tab1.markdown("[5] 2009-2013 南京大学 天文与空间科学学院 本科")
 
 #tab2.markdown('**研究兴趣**')
 
-p1tab2.markdown("- 电氢交通耦合系统")
-p1tab2.markdown("- 电力市场与碳中和政策")
-p1tab2.markdown("- 复杂网络与博弈")
+p1tab2.markdown("- 绿氢氨醇技术经济分析与市场、政策研究")
+p1tab2.markdown("- 算电协同系统模型")
+p1tab2.markdown("- 电力市场、碳市场")
 
 #tab3.markdown('**招生方向**')
 
